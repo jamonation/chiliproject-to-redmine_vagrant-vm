@@ -1,0 +1,6 @@
+[submodule "redmine"]
+	path = redmine
+	url = https://github.com/redmine/redmine.git
+[submodule "migrator"]
+	path = migrator
+	url = https://gist.github.com/9668487.git
