@@ -2,5 +2,5 @@
 	path = redmine
 	url = https://github.com/redmine/redmine.git
 [submodule "migrator"]
-	path = migrator
+	path = tools
 	url = https://gist.github.com/9668487.git
