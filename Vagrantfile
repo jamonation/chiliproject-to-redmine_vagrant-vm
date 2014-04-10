@@ -23,7 +23,7 @@ Vagrant::Config.run do |config|
         end
     end
 
-    config.vm.forward_port 80, 3000
+    config.vm.forward_port 3000, 3000
 
     if CONF['boot_mode'] == 'gui'
         config.vm.boot_mode = :gui

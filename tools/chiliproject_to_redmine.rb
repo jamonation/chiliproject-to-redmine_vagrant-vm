@@ -50,15 +50,17 @@
 require 'rubygems'
 require 'mysql2'
 require 'syck'
+require 'inifile'
 
 # configuration
 redmine_db        = 'redmine'
 journal_start_id  = 0
 chili_db          = 'chiliproject'
+mysql_credentials = IniFile.load('/home/vagrant/.my.cnf')['client']
 config =  {
             encoding: 'utf8',
-            username: '',
-            password: '',
+            username: mysql_credentials['user'],
+            password: mysql_credentials['password'],
             host: ''
           }
 

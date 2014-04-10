@@ -37,7 +37,7 @@ apt-get -y install libmysqlclient-dev ruby1.9.3 libxml2-dev libxslt1-dev libmagi
 
 # gem stuff
 gem install rdoc
-gem install bundle mysql2
+gem install bundle mysql2 inifile
 gem install rake -v '10.1.1' 
 
 # clone redmine repository

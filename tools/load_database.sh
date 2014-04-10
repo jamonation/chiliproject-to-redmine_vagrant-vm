@@ -3,7 +3,9 @@
 DB_DUMP=/home/vagrant/migrate/chiliproject.sql
 
 if [[ -e $DB_DUMP ]]; then
-    mysql chiliproject < $DB_DUMP
+    printf "Loading chiliproject.sql into MySQL\n\n"
+    pv $DB_DUMP |mysql chiliproject
+    printf "\nDatabase loaded. Proceed with migration script.\n"
 else
     printf "No database dump named /home/vagrant/migrate/chiliproject.sql exists.\n\n"
     printf "Ensure you have copied your Chiliproject MySQL dump to that file.\n"
