@@ -1,5 +1,5 @@
-Chiliproject to Redmin Migration using Vagrant and Ubuntu 12.04
-===============================================================
+Chiliproject to Redmine Migration environment
+=============================================
 
 The purpose of this VM is to provide a mostly consistent environment in which to perform a Chiliproject to Redmine migration.
 
@@ -36,9 +36,9 @@ Ok on to how to use this tool. A number of preparation steps are required before
 
 4. Once the provisioning completes with the message **Provisioning complete. Run 'vagrant ssh' to continue**, do that. Run ``vagrant ssh`` and you will be logged into the virtual machine and are ready to run the conversion.
 
-5. ``cd migrate`` and load your database dump using the ``tools/load_database.sh`` script. This script is the one that presumes the existence of ``/home/vagrant/migrate/chiliproject.sql``, which you already created in step #2. 
+5. ``cd migrate`` and load your database dump using ``bash tools/load_database.sh``. This script is the one that presumes the existence of ``/home/vagrant/migrate/chiliproject.sql``, which you already created in step #2. 
 
-6. Run the migration script: ``RAILS_ENV=production tools/chiliproject_to_redmine.rb``
+6. ``cd redmine`` and run the migration script: ``RAILS_ENV=production ruby ../tools/chiliproject_to_redmine.rb``
 
 7. Profit! Your converted (hopefully) Redmine ready database resides in ``/home/vagrant/migrate/redmine.sql.gz``. The VM MySQL instance also contains the converted database named ``redmine``. 
 
@@ -46,11 +46,11 @@ Ok on to how to use this tool. A number of preparation steps are required before
   1. ``cd ~/migrate/redmine``
   2. ``rake generate_secret_token``
   3. ``ruby script/rails server webrick -e production``
-  4. Browse to http://10.0.2.15:3000 to visit your migrated Redmine instance
+  4. Browse to http://127.0.0.1:3000 to visit your migrated Redmine instance
 
 Notes
 -----
 
 This tool doesn't handle anything with your uploaded files and isn't intended to be a production ready instance of Redmine. It could be with some work, but the intent is merely to do the migration so **do not** rely on this image for anything else.
 
-The default IP for a Vagrant/Virtualbox guest is 10.0.2.15. If you want to SSH using the IP or rsync etc., that is the IP to use. You can always check the guest IP by running ``vagrant ssh -c 'ip a`` from outside the guest.
+If you want to SSH using the IP or rsync etc., install your ssh key or set a password for the user in the VM. Then do ``ssh 127.0.0.1 -p 2222`` to connect using the local port forward that is setup by the Vagrant VM.
