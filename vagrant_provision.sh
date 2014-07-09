@@ -42,6 +42,8 @@ gem install rake -v '10.1.1'
 
 # clone redmine repository
 cd /home/vagrant/migrate
+git remote rm origin
+git remote add origin https://github.com/jamonation/chiliproject-to-redmine_vagrant-vm.git
 git pull origin master
 git submodule update --init --recursive
 cd /home/vagrant/migrate/redmine
