@@ -33,7 +33,7 @@ chown vagrant /home/vagrant/.my.cnf
 chmod 600 /home/vagrant/.my.cnf
 
 # install ruby & dev libraries:
-apt-get -y install libmysqlclient-dev ruby1.9.3 libxml2-dev libxslt1-dev libmagickwand-dev git
+apt-get -y install libmysqlclient-dev ruby1.9.3 libxml2-dev libxslt1-dev libmagickwand-dev git pv
 
 # gem stuff
 gem install rdoc
